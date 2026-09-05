@@ -8,21 +8,11 @@
 (defun use-jsonrpc-codec ()
   (setf rpc-protocol:*rpc-codec* *jsonrpc-codec*))
 
-(defmethod yason:encode ((object (eql :false)) &optional (stream *standard-output*))
-  (write-string "false" stream)
-  object)
-
-(defmethod yason:encode ((object (eql :true)) &optional (stream *standard-output*))
-  (write-string "true" stream)
-  object)
-
 (defun %json (obj)
-  (let ((yason:*symbol-encoder* #'yason:encode-symbol-as-lowercase))
-    (with-output-to-string (s)
-      (yason:encode obj s))))
+  (json-protocol:encode obj))
 
 (defun %parse (string)
-  (yason:parse string :object-as :hash-table :json-arrays-as-vectors t))
+  (json-protocol:decode string))
 
 (defun %object (&rest kvs)
   (let ((h (make-hash-table :test 'equal)))

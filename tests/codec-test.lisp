@@ -9,7 +9,7 @@
 
 (deftest encode-false-is-json-boolean
   (let ((h (make-hash-table :test 'equal)))
-    (setf (gethash "isError" h) :false)
+    (setf (gethash "isError" h) nil)
     (let ((wire (rpc-protocol:encode-response h :id 1)))
       (ok (search "\"isError\":false" (remove #\space wire))))))
 
