@@ -3,7 +3,7 @@
   :description "JSON-RPC 2.0 codec for rpc-protocol"
   :author "egao1980"
   :license "MIT"
-  :depends-on ("rpc-protocol" "yason")
+  :depends-on ("rpc-protocol" "json-protocol" "json-backend-jzon")
   :properties (:cl-repo (:ci (:with ("dissect"))))
   :serial t
   :pathname "src"
