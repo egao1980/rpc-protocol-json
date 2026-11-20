@@ -1,5 +1,5 @@
 (defsystem "rpc-protocol-json"
-  :version "0.1.0"
+  :version "0.1.1"
   :description "JSON-RPC 2.0 codec for rpc-protocol"
   :author "egao1980"
   :license "MIT"
